@@ -4,6 +4,7 @@ group "development" do
   gem "pry"
   gem "pry-nav"
   gem "rest-client"
+  gem 'forecast_io'
 end
 
 group "test" do

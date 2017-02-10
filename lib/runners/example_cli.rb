@@ -1,4 +1,4 @@
-class ExampleCLI
+class Example_cli
 
   def call
     puts "Welcome, what Spotify Artist should I use?"

@@ -42,7 +42,7 @@ Your app should have at least three classes:
   * Note about data fetchers: They must instantiate new instances of your model class or classes.
 3. Model(s)
   * The third class should be a model of your data, in the `app/models` folder
-  * If you are fetching data from Spotify for instance, an appropriate model might be Song. Song could have a couple attributes:
+  * If you are fetching data from Spotify for instance, an appropriate modael might be Song. Song could have a couple attributes:
     * artist
     * album
     * length
