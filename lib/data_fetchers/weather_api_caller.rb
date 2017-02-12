@@ -41,6 +41,7 @@ class API
       end
     end
 
+    #inputs long and lat
     new_city.lat = lat = @location_data["results"][0]["geometry"]["location"]["lat"]
     new_city.lng = @location_data["results"][0]["geometry"]["location"]["lng"]
     new_city.formatted_address = @location_data["results"][0]["formatted_address"]
@@ -53,6 +54,7 @@ class API
     #adds the location to the list of locations
     Location.locations << new_city
     new_city
+
   end
 
 end

@@ -49,11 +49,25 @@ class Format
   def delay_print
     [". " , ". " , ". " , ". " , ". " , ". " , ". " , ].each_with_index {|c, i|  puts " " * i + c ; sleep 0.04}
     [". " , ". " , ". " , ". " , ". " , ". " , ". " , ].each_with_index {|c, i| puts "  " * (i + 4) + c ; sleep 0.02}
-    [". " , ". " , ". " , ". " , ". " , ". " , ". " , ].each_with_index {|c, i| puts "   " * (i + 8) + c; sleep 0.005}
+    [". " , ". " , ". " , ". " , ". " , ". " , ". " , ". " , ". " , ". " , ". "  ].each_with_index {|c, i| puts "   " * (i + 8) + c; sleep 0.005}
+    [". " , ". " , ". " , ". " , ". " , ". " , ". " , ". " , ". " , ". " , ". "  ].each_with_index {|c, i| puts "   " * (i + 9) + c; sleep 0.003}
+    [". " , ". " , ". " , ". " , ". " , ". " , ". " , ". " , ". " , ". " , ". "  ].each_with_index {|c, i| puts "   " * (i + 10) + c; sleep 0.001}
     puts ""
+  end
+
+  def simple
+    [". " , ". " , ". " , ". " ].each_with_index {|c, i|  puts c; sleep 0.04}
+  end
+
+  def medium_print
+    ["          ............" , "          ............", "          ............"  ].each_with_index {|c, i|  puts c ; sleep 0.04}
   end
 
   def indent(string)
     puts (' ' * 10) + string
+  end
+
+  def clear_screen
+    print "\e[2J\e[f"
   end
 end
