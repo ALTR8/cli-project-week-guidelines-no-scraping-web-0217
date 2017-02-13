@@ -9,9 +9,7 @@ class CLI < Format
 
   def run
     while @user_input != "!exit"
-      delay_print
       clear_screen
-      welcome
       mode_select
     end
     exit_s
@@ -36,19 +34,18 @@ class CLI < Format
       comparison_mode
     elsif @user_input== '!exit'
       exit_s
+    elsif @user_input == '!r'
+      mode_select
     else
     end
   end
 
   def mode_select
+    clear_screen
+    logo
+    welcome
     lines
-    puts "Please enter '!L' for listing mode to list"
-    puts "weather details for an individual city or address."
-    puts ""
-    puts "Please enter '!C' for comparison mode to compare"
-    puts "weather details from several locations."
-    puts ""
-    puts "Other commands : '!exit' and '!help'"
+    explanation
     lines
 
     get_user_input
@@ -67,8 +64,9 @@ class CLI < Format
     puts "Please enter a group of locations to compare."
     puts "Separate them by '!!' "
     puts ""
-    puts "Other commands : '!exit' and '!help'"
+    puts "Other commands : '!exit' and '!help' '!L'"
     lines
+    print "Locations (separate by '!!'): "
     get_user_input
 
     puts ""
@@ -85,14 +83,17 @@ class CLI < Format
 
   def listing_mode
       clear_screen
+      listing_logo
       lines
       puts "LISTING MODE"
       lines
       puts "Please enter a location by address and state"
       puts "or by city and country."
-      puts "Other available commands: '!help' '!exit' '!C' for comparison mode"
+      puts "Other available commands:
+      '!help' '!exit'
+      '!C' for comparison mode !R to restart"
       lines
-
+      print "Location: "
       get_user_input
 
         puts ""
@@ -113,8 +114,6 @@ class CLI < Format
         simple
         puts ""
         listing_presenter(loc_object)
-
-
   end
 
   def listing_presenter(loc_object)
@@ -138,6 +137,8 @@ class CLI < Format
       puts "!T : temperature"
       puts "!W : wind speed"
       puts "!S : summary"
+      puts "!R : to restart"
+      puts "!exit to exit the program"
       lines
 
       get_user_input
@@ -224,11 +225,7 @@ class CLI < Format
 
   def help
     lines
-    puts "!L = Listing mode => list weather details for a location"
-    puts "!C = Comparison mode => compare weather from different locations"
-    puts "help = help file"
-    puts "exit = exit"
-    puts "Input locations as a normal street address or a city state or city country"
+    explanation
     lines
     get_user_input
   end
@@ -238,5 +235,4 @@ class CLI < Format
     puts "Goodbye!"
     exit
   end
-
 end
